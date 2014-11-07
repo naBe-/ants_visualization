@@ -57,7 +57,6 @@ class Board(object):
                 ant = self.ants[ant_repr['id']]
                 ant.position = ant_repr['position']
             else:
-                print ant_repr
                 ant = Ant(**ant_repr)
                 self.ants[ant_repr['id']] = ant
             pos = map(lambda coord: coord*TILE_SIZE+TILE_SIZE/2, ant.position)
