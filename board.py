@@ -48,7 +48,7 @@ class Board(object):
 
     def update(self, data):
         map(lambda tile, pheromones: tile.update(**pheromones),
-                                                 self.tiles, data['board'])
+            self.tiles, data['board'])
         for tile in self.tiles:
             rect, color = tile.render()
             pygame.draw.rect(self.screen, color, rect)
