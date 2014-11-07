@@ -59,7 +59,7 @@ class Board(object):
             else:
                 ant = Ant(**ant_repr)
                 self.ants[ant_repr['id']] = ant
-            pos = map(lambda coord: coord+TILE_SIZE/2, ant.position)
+            pos = map(lambda coord: coord*TILE_SIZE+TILE_SIZE/2, ant.position)
             pygame.draw.circle(self.screen, GREEN, pos, TILE_SIZE/5)
         # Place colony
         pygame.draw.rect(self.screen, GREEN, self.colony)
