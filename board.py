@@ -29,8 +29,8 @@ class Board(object):
         self.ants = {}
 
         # Populate grid
-        for h in range(0, height):
-            for w in range(0, width):
+        for w in range(0, width):
+            for h in range(0, height):
                 square = Tile(w*TILE_SIZE, h*TILE_SIZE)
                 self.tiles.append(square)
                 rect, color = square.render()
@@ -60,7 +60,8 @@ class Board(object):
                 ant = Ant(**ant_repr)
                 self.ants[ant_repr['id']] = ant
             pos = map(lambda coord: coord*TILE_SIZE+TILE_SIZE/2, ant.position)
-            pygame.draw.circle(self.screen, GREEN, pos, TILE_SIZE/5)
+            ant_color = YELLOW if ant.carries_food else GREEN
+            pygame.draw.circle(self.screen, ant_color, pos, TILE_SIZE/5)
         # Place colony
         pygame.draw.rect(self.screen, GREEN, self.colony)
         # Place food
