@@ -55,6 +55,7 @@ class Board(object):
         for ant_repr in data['ants']:
             if ant_repr['id'] in self.ants:
                 ant = self.ants[ant_repr['id']]
+                ant.position = ant_repr['position']
             else:
                 ant = Ant(**ant_repr)
                 self.ants[ant_repr['id']] = ant
