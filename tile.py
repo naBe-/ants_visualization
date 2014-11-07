@@ -11,11 +11,11 @@ class Tile(object):
         self.pheromone_b = pheromone_b
 
     def update(self, tau_a, tau_b):
-        self.pheromone_a = pheromone_a
-        self.pheromone_b = pheromone_b
+        self.pheromone_a = tau_a
+        self.pheromone_b = tau_b
 
     def render(self):
         rect = [self.position[0], self.position[1],
-                self.position[0]+TILE_SIZE, self.position[1]+TILE_SIZE]
+                TILE_SIZE, TILE_SIZE]
         color = (255*self.pheromone_b, 0, 255*self.pheromone_a)
         return rect, color
