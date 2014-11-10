@@ -24,12 +24,17 @@ if __name__ == "__main__":
                       input_data['colony_pos'],
                       input_data['food'])
 
+    if len(sys.argv) > 2:
+        file_fd = open(sys.argv[2], 'r')
+        sys.stdin = file_fd
+
     while True:
         data = sys.stdin.readline().rstrip()
         try:
             data_in = json.loads(data)
             if 'exit' in data_in:
                 gameboard.exit()
+                sys.stdin.close()
                 sys.exit(0)
             gameboard.update(data_in)
         except ValueError:
